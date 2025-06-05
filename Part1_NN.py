@@ -1,3 +1,6 @@
+from google.colab import drive
+drive.mount('/content/drive')
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,9 +11,10 @@ from keras.models import Sequential
 from keras.layers import Dense, Input
 from keras.optimizers import SGD
 from keras.regularizers import l2
+import joblib
 
 EPOCHS = 100
-BATCH_SIZE = 16
+BATCH_SIZE = 32
 r = 0.01
 
 data = pd.read_csv('/content/alzheimers_disease_data (1).csv', skiprows=1, header=None)
@@ -50,14 +54,14 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(X, y), 1):
     ])
 
     # 🔹 7. Compiling του Μοντέλου
-    opt = SGD(learning_rate=0.05, momentum=0.6)
+    opt = SGD(learning_rate=0.01, momentum=0.6)
     model.compile(loss='binary_crossentropy', optimizer=opt, metrics=['accuracy'])
 
     # 🔹 8. Εκπαίδευση (Training) του Μοντέλου
-    history = model.fit(X_tr, y_tr, epochs=EPOCHS, batch_size=BATCH_SIZE, verbose=0, validation_data=(X_val, y_val))
+    history = model.fit(X_tr, y_tr, epochs=EPOCHS, batch_size=BATCH_SIZE, validation_data=(X_val, y_val))
 
     # 🔹 9. Αξιολόγηση στο Validation Set
-    val_ce, val_accuracy = model.evaluate(X_val, y_val, verbose=0)
+    val_ce, val_accuracy = model.evaluate(X_val, y_val)
     print(f"✅ Validation - Accuracy: {val_accuracy:.4f}, CE-Loss: {val_ce:.4f}")
 
     cv_accuracies.append(val_accuracy)
@@ -121,3 +125,9 @@ plt.legend()
 plt.grid(True, linestyle='--', alpha=0.5)
 plt.tight_layout()
 plt.show()
+
+# Αποθήκευση του μοντέλου μετά την εκπαίδευση
+model.save('best_model.keras')
+
+# Αποθήκευση των scaler/encoder για να μεταχειριστείς τα δεδομένα με τον ίδιο τρόπο
+joblib.dump(scaler, 'scaler.pkl')
