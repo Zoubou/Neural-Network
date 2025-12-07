@@ -1,59 +1,97 @@
-Alzheimer's Disease Prediction using Neural Networks
+# 📘 Neural Network – Alzheimer’s Prediction  
+Machine Learning · Feature Selection with Genetic Algorithms · Keras · Python
 
-Overview
+This repository contains two main components:
 
-This project aims to develop a Neural Network (NN) model to predict Alzheimer's disease based on patient data, including biomarkers, medical history, and cognitive evaluations. The dataset used contains 2,149 patients with 35 features, where the last column represents the diagnosis.
+1. **Part 1 – Neural Network (NN) model** for binary classification (Alzheimer’s vs. Non-Alzheimer’s)  
+2. **Part 2 – Genetic Algorithm (GA)** for feature selection, optimizing the input set for the NN from Part 1  
 
-Dataset
+The project is structured for **Google Colab**, using datasets stored on Google Drive.
 
-Source: Alzheimer's Disease Dataset
+---
 
-File: alzheimers_disease_data.csv
+# 🚀 How to Run the Project
 
-Features:
+You can run the project **either on Google Colab (recommended)** or **locally**.
 
-Numerical: Biomarker levels, age, cognitive test scores, etc.
+---
 
-Categorical: Gender, smoking status, education level, etc.
+# 🟦 OPTION 1 — Run on Google Colab (Recommended)
 
-Target Variable: Diagnosis (Alzheimer or Not)
+Both `.py` files are written for **Google Colab**, including:
 
-Implementation Steps
+- `from google.colab import drive`
+- `drive.mount('/content/drive')`
+- Dataset paths like  
+  `/content/drive/MyDrive/...`
 
-1. Data Preprocessing
+### Steps
 
-Handling missing values.
+1️⃣ Upload the folder to Google Drive  
+2️⃣ Open Google Colab  
+3️⃣ Upload the scripts  
+4️⃣ Mount Google Drive  
+5️⃣ Run all cells  
 
-Encoding categorical variables using One-Hot Encoding & Label Encoding.
+---
 
-Normalizing numerical features using StandardScaler (Z-score standardization).
+# 🟩 OPTION 2 — Run Locally (VSCode / PyCharm)
 
-Splitting data into training (80%) and testing (20%) sets.
+Install requirements:
 
-Implementing 5-Fold Cross Validation using StratifiedKFold.
+pip install numpy pandas scikit-learn keras tensorflow joblib matplotlib
 
-2. Neural Network Architecture
+Replace Google Drive paths with local file paths.
 
-Input Layer: 34 features.
+Run:
 
-Hidden Layers: One hidden layer (experimentation with different neuron counts I/2, 2I/3, I, 2I).
+python Part1_NN.py  
+python Part2_GA.py  
 
-Activation Functions: ReLU, Tanh, SiLU.
+---
 
-Output Layer: One neuron with Sigmoid activation.
+# 🔬 Part 1 — Neural Network (Part1_NN.py)
 
-Loss Function: Binary Cross-Entropy.
+- Loads dataset  
+- Scaling, preprocessing  
+- Keras Sequential Model  
+- SGD optimizer  
+- Accuracy, loss, MSE  
+- Saves results and model  
 
-Optimizer: Adam (with adjustable learning rate and momentum).
+---
 
-Evaluation Metrics: Accuracy, Cross-Entropy Loss, Mean Squared Error (MSE).
+# 🧬 Part 2 — Genetic Algorithm (Part2_GA.py)
 
-3. Training and Evaluation
+- Reduces 34 input features  
+- Chromosome = feature mask  
+- Fitness = NN accuracy  
+- Selection, crossover, mutation  
+- Produces best feature subset  
+- Plots fitness curves  
 
-Experimenting with different learning rates and momentum values.
+---
 
-Implementing regularization techniques (L1/L2) to prevent overfitting.
+# ⚙️ Requirements
 
-Applying early stopping to optimize training time.
+pip install numpy pandas scikit-learn tensorflow keras joblib matplotlib
 
-Testing the effect of adding multiple hidden layers for performance improvement.
+---
+
+# 📈 Outputs
+
+- Neural network metrics  
+- Accuracy graphs  
+- GA evolution curves  
+- Best feature subset  
+
+---
+
+# 🏁 Summary
+
+This project demonstrates:
+
+✔️ Complete ML pipeline  
+✔️ Neural network classification  
+✔️ GA-based feature selection  
+✔️ Google Colab workflow  
