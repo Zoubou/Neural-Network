@@ -10,13 +10,13 @@ The project is structured for **Google Colab**, using datasets stored on Google 
 
 ---
 
-# 🚀 How to Run the Project
+# How to Run the Project
 
 You can run the project **either on Google Colab (recommended)** or **locally**.
 
 ---
 
-# 🟦 OPTION 1 — Run on Google Colab (Recommended)
+# OPTION 1 — Run on Google Colab (Recommended)
 
 Both `.py` files are written for **Google Colab**, including:
 
@@ -35,7 +35,7 @@ Both `.py` files are written for **Google Colab**, including:
 
 ---
 
-# 🟩 OPTION 2 — Run Locally (VSCode / PyCharm)
+# OPTION 2 — Run Locally (VSCode / PyCharm)
 
 Install requirements:
 
@@ -50,7 +50,7 @@ python Part2_GA.py
 
 ---
 
-# 🔬 Part 1 — Neural Network (Part1_NN.py)
+# Part 1 — Neural Network (Part1_NN.py)
 
 - Loads dataset  
 - Scaling, preprocessing  
@@ -61,7 +61,7 @@ python Part2_GA.py
 
 ---
 
-# 🧬 Part 2 — Genetic Algorithm (Part2_GA.py)
+# Part 2 — Genetic Algorithm (Part2_GA.py)
 
 - Reduces 34 input features  
 - Chromosome = feature mask  
@@ -85,13 +85,3 @@ pip install numpy pandas scikit-learn tensorflow keras joblib matplotlib
 - GA evolution curves  
 - Best feature subset  
 
----
-
-# 🏁 Summary
-
-This project demonstrates:
-
-✔️ Complete ML pipeline  
-✔️ Neural network classification  
-✔️ GA-based feature selection  
-✔️ Google Colab workflow  
