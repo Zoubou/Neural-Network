@@ -1,4 +1,4 @@
-# 📘 Neural Network – Alzheimer’s Prediction  
+# Neural Network – Alzheimer’s Prediction  
 Machine Learning · Feature Selection with Genetic Algorithms · Keras · Python
 
 This repository contains two main components:
